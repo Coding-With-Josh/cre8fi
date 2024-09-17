@@ -4,7 +4,7 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 const Hero = () => {
   return (
-    <div className="mx-5 mt-[5rem] flex flex-col items-center">
+    <div className="mx-5 mt-[8rem] flex flex-col items-center">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
