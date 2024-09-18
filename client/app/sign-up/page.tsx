@@ -2,8 +2,8 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div className=''>
-
+    <div className='flex items-center justify-center w-screen h-screen'>
+      
     </div>
   )
 }

@@ -23,16 +23,17 @@ const Navbar = () => {
             <Link href="/" className="flex-shrink-0">
               <span className="font-bold text-2xl text-primary">Cre8Fi</span>
             </Link>
-            <div className="hidden md:block ml-10">
-              <div className="flex items-baseline space-x-4">
+
+            <div className="hidden md:block md: ml-10">
+              <div className="flex items-center space-x-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     href={item.path}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       pathname === item.path
-                        ? 'text-primary bg-primary/10'
-                        : 'text-gray-300 hover:text-primary hover:bg-primary/5'
+                        ? 'text-primary border-b-2 border-primary/50'
+                        : 'text-gray-300 hover:text-primary '
                     }`}
                   >
                     {item.label}
@@ -44,7 +45,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
               <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link>
-              <Link href="/signup" className="ml-3 px-4 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-primary/80 transition-colors duration-300">Sign Up</Link>
+              <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/30 hover:bg-primary/80 transition-colors duration-300">Sign Up</Link>
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -70,8 +71,8 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-primary/5" onClick={() => setIsOpen(false)}>Log In</Link>
-          <Link href="/signup" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-primary/80" onClick={() => setIsOpen(false)}>Sign Up</Link>
+          <Link href="/login" className="block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-primary hover:bg-primary/5" onClick={() => setIsOpen(false)}>Log In</Link>
+          <Link href="/signup" className="block px-3 py-2 rounded-full text-base font-medium text-white bg-primary/30 hover:bg-primary/80" onClick={() => setIsOpen(false)}>Sign Up</Link>
         </div>
       </div>
     </nav>

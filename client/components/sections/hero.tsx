@@ -1,6 +1,7 @@
 import React from "react";
 import { Spotlight } from "../ui/spotlight";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -21,9 +22,9 @@ const Hero = () => {
       <HoverBorderGradient
         containerClassName="rounded-[1.5rem]"
         as="button"
-        className="bg-primary text-white flex items-center space-x-2"
+        className="bg-primary/30 text-white flex items-center space-x-2"
       >
-        Get Started
+        <Link href='/sign-up'>Join the space</Link>
       </HoverBorderGradient>
     </div>
   );
