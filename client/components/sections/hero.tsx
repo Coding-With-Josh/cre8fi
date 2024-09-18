@@ -4,12 +4,12 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 const Hero = () => {
   return (
-    <div className="mx-5 mt-[8rem] flex flex-col items-center">
+    <div className="mt-[8.5rem] flex flex-col items-center">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
+        fill="blue"
       />
-      <h1 className="font-mono text-[1.7rem] md:[2rem] lg:[2.5rem] xl:[3rem] text-center">
+      <h1 className="animate-in font-mono text-[1.7rem] md:[2rem] lg:[2.5rem] xl:[3rem] text-center">
         Unlock your earning potential <br /> with {""}{" "}
         <span className="text-primary">Cre8Fi</span>{" "}
       </h1>
