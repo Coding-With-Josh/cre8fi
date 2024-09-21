@@ -10,13 +10,13 @@ const Hero = () => {
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="blue"
       />
-      <h1 className="animate-in font-mono text-[1.7rem] md:[2rem] lg:[2.5rem] xl:[3rem] text-center">
+      <h1 className="animate-in font-mono text-[2rem] md:[2rem] lg:[2.5rem] xl:[3rem] text-center">
         Unlock your earning potential <br /> with {""}{" "}
         <span className="text-primary">Cre8Fi</span>{" "}
       </h1>
-      <h2 className="mt-4 mb-6 text-center text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+      <h2 className="mt-4 mb-6 text-center text-sm md:text-md lg:text-lg text-muted-foreground mx-auto">
         Empowering creators to monetize their passion. Discover innovative tools
-        and strategies to maximize your income and build a sustainable career
+        and strategies to <br/> maximize your income and build a sustainable career
         doing what you love.
       </h2>
       <HoverBorderGradient

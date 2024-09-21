@@ -1,14 +1,20 @@
 "use client";
 
 import React from "react";
-import FeaturesSectionDemo from "../blocks/features-section-demo-2";
+
+const features = [
+  {
+    title: ''
+  }
+]
 
 const Features = () => {
   return (
     <div className="animate-in px-4 mt-[5rem] flex flex-col items-center">
-      <h1 className="text-[1.4rem] mb-2 font-bold ">Features</h1>
+      {/* <h1 className="text-[1.4rem] mb-2 font-bold ">Features</h1> */}
+      <div>
 
-      <FeaturesSectionDemo />
+      </div>
     </div>
   );
 };
