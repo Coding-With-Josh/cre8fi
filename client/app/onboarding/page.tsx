@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from "@/components/ui/button";
 import { CheckIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -85,6 +86,6 @@ const OnboardingPage = () => {
 const PersonalInfoForm = () => <div className="">Personal Info Form</div>;
 const WorkDetailsForm = () => <div >Work Details Form</div>;
 const PreferencesForm = () => <div>Preferences Form</div>;
-const ReviewStep = () => <div>Review Step</div>;
+const ReviewStep = () => <div>Review Step<Button>Finish</Button></div>;
 
 export default OnboardingPage;
