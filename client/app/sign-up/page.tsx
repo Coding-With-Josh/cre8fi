@@ -41,33 +41,18 @@ const SignUp = () => {
         <form className="flex flex-col space-y-5 mt-3">
           <div className="flex flex-col space-y-2">
             <Label className="text-gray">Username</Label>
-            <Input
-              className="bg-transparent backdrop-blur-xl border rounded-[6.5px] border-blue-800/10 px-2 py-4 text-gray-100 placeholder:text-muted-foreground focus-visible:ring-neutral-600"
-              placeholder="example123"
-              autoSave="true"
-              autoFocus
-            />
+            <Input placeholder="example123" autoSave="true" autoFocus />
           </div>
           <div className="flex flex-col space-y-2">
             <Label className="text-gray">Email</Label>
-            <Input
-              className="bg-transparent backdrop-blur-xl border rounded-[6.5px] border-blue-800/10 px-2 py-4 text-gray-100 placeholder:text-muted-foreground focus-visible:ring-neutral-600"
-              placeholder="example@stuff.com"
-              autoFocus
-              autoSave="true"
-            />
+            <Input placeholder="example@stuff.com" autoFocus autoSave="true" />
           </div>
           <div className="flex flex-col space-y-2">
             <Label className="text-gray">Password</Label>
-            <Input
-              className="bg-transparent backdrop-blur-xl border rounded-[6.5px] border-blue-800/10 px-2 py-4 text-gray-100 placeholder:text-muted-foreground focus-visible:ring-neutral-600"
-              placeholder="password"
-              security="true"
-              hidden
-            />
+            <Input placeholder="password" security="true" hidden />
           </div>
-          <Link href='/onboarding' className='w-full'>
-            <Button className="text-white rounded-[8px]">Continue</Button>
+          <Link href="/onboarding" className="w-full">
+            <Button>Continue</Button>
           </Link>{" "}
           <div className="flex items-center justify-center space-x-1">
             <div className="h-[2px] w-[4rem] bg-white/10" />
