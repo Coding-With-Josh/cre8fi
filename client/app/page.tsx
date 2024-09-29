@@ -1,6 +1,6 @@
 import Features from "@/components/sections/Features";
 import Hero from "@/components/sections/hero";
-import Navbar from "@/components/sections/Navbar";
+import { Navbar } from "@/components/sections/Navbar";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import Head from "next/head";
