@@ -35,7 +35,7 @@ export const Navbar = () => {
                     className={`px-3 py-2 rounded-md text-xs font-medium transition-all duration-300 ${
                       pathname === item.path
                         ? "text-primary scale-105"
-                        : "text-gray-300 hover:scale-105 hover:text-primary "
+                        : "text-gray-300 hover:scale-105 hover:text-primary"
                     }`}
                   >
                     {item.label}
