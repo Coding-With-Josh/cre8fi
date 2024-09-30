@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "api",
     "accounts_api",
     "post_api",
+    "user_dashboard",
 ]
 
 MIDDLEWARE = [
