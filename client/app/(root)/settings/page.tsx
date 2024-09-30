@@ -9,6 +9,9 @@ const Dashboard = () => {
     phoneNumber: "",
     emailAddress: "",
     bio: "",
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
   });
 
   const handleChange = (
@@ -31,7 +34,7 @@ const Dashboard = () => {
       >
         {/* First Name */}
         <div>
-          <label className="block text-lg font-semibold">First Name</label>
+          <label className="block text-sm font-normal pb-3">First Name</label>
           <input
             type="text"
             name="firstName"
@@ -44,7 +47,7 @@ const Dashboard = () => {
 
         {/* Last Name */}
         <div>
-          <label className="block text-lg font-semibold">Last Name</label>
+          <label className="block text-sm font-normal pb-3">Last Name</label>
           <input
             type="text"
             name="lastName"
@@ -57,7 +60,7 @@ const Dashboard = () => {
 
         {/* Phone Number */}
         <div>
-          <label className="block text-lg font-semibold">Phone Number</label>
+          <label className="block text-sm font-normal pb-3">Phone Number</label>
           <input
             type="number"
             name="phoneNumber"
@@ -70,7 +73,9 @@ const Dashboard = () => {
 
         {/* Email Address */}
         <div>
-          <label className="block text-lg font-semibold">Email Address</label>
+          <label className="block text-sm font-normal pb-3">
+            Email Address
+          </label>
           <input
             type="email"
             name="emailAddress"
@@ -83,7 +88,7 @@ const Dashboard = () => {
 
         {/* Bio */}
         <div className="md:col-span-2">
-          <label className="block text-lg font-semibold">Bio</label>
+          <label className="block text-sm font-normal pb-3">Bio</label>
           <textarea
             name="bio"
             value={formData.bio}
@@ -101,10 +106,54 @@ const Dashboard = () => {
           </button>
         </div>
 
+        {/* Password Fields */}
+        <h1 className="block text-lg font-semibold pb-4">Change Password</h1>
+        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 pb-20">
+          <div>
+            <label className="block text-sm font-normal pb-3">
+              Current password
+            </label>
+            <input
+              type="password"
+              name="currentPassword"
+              value={formData.currentPassword}
+              onChange={handleChange}
+              placeholder="wordpass"
+              className="w-full p-3 border border-gray-300 bg-transparent rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-normal pb-3">
+              New password
+            </label>
+            <input
+              type="password"
+              name="newPassword"
+              value={formData.newPassword}
+              onChange={handleChange}
+              placeholder="wordpassage"
+              className="w-full p-3 border border-gray-300 bg-transparent rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-normal pb-3">
+              Confirm password
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="wordpassage"
+              className="w-full p-3 border border-gray-300 bg-transparent rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+        </div>
+
         <div className="md:col-span-2 flex justify-center">
           <button
             type="submit"
-            className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all"
+            className=" w-[40%] p-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all"
           >
             Save changes
           </button>
