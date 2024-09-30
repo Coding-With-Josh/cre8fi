@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,17 +10,26 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 type Props = {
-  title?: any;
+  title?: string;
   message?: string;
-  trigger: any;
+  trigger: React.ReactNode;
   afterUrl?: string;
 };
 
-export function AlertDialogWithAction({ title, message, trigger }: Props) {
+interface AlertDialogPropType {
+  title: string;
+  message: string;
+  trigger: React.ReactNode;
+  afterUrl?: string;
+}
+
+export function AlertDialogWithAction({
+  title,
+  message,
+  trigger,
+}: AlertDialogPropType) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
@@ -47,7 +57,7 @@ export function SuccessDialog({ title, message, trigger, afterUrl }: Props) {
           <AlertDialogDescription>{message}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <Link href={afterUrl}>
+          <Link href={afterUrl || "#"}>
             {" "}
             <AlertDialogCancel>Cancel</AlertDialogCancel>
           </Link>
