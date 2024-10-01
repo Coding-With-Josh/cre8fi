@@ -14,10 +14,12 @@ const SettingsPage = () => {
       </div>
 
       <div className="flex">
-        <Button className="w-[400px] rounded-[40px] mt-10 mx-auto">Save Changes</Button>
+        <Button className="w-[400px] rounded-[40px] mt-10 mx-auto">
+          Save Changes
+        </Button>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default SettingsPage;
