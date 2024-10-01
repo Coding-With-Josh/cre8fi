@@ -81,6 +81,7 @@ export const CustomFormField = ({
         return (
           <Textarea
             {...fieldProps}
+            readOnly={readonly}
             className={cn("dark:bg-slate-700", className)}
           />
         );
