@@ -20,4 +20,4 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default Dashboard;
