@@ -15,7 +15,7 @@ export const Header = ({ toggleSidebar }: Props) => {
     <header className="bg-slate-900 shadow-sm z-10 py-2">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center justify-between lg:justify-center gap-40">
+          <div className="flex items-center justify-between lg:justify-center gap-20">
             <Link href="/" className="flex-shrink-0">
               <Logo />
             </Link>
