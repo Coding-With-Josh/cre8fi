@@ -81,7 +81,7 @@ export const ChangePasswordForm = () => {
           <Button
             type="button"
             onClick={() => setChangePassword(!changePassword)}
-            className="max-w-[200px]"
+            className="max-w-[200px] rounded-[40px]"
           >
             Change Password
           </Button>

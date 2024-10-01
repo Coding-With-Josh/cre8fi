@@ -13,7 +13,9 @@ const SettingsPage = () => {
         <ChangePasswordForm />
       </div>
 
-      <Button className="w-[400px] mt-10 mx-auto">Save Changes</Button>
+      <div className="flex">
+        <Button className="w-[400px] rounded-[40px] mt-10 mx-auto">Save Changes</Button>
+      </div>
     </div>
   );
 };
