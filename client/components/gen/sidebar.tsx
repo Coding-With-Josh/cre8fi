@@ -68,7 +68,7 @@ export function DashboardMenu({ children, baseHref }: DashboardMenuProps) {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div className="flex flex-col h-screen bg-slate-900">
+    <div className="flex flex-col h-[982px]  top-[39163px] left-[41285px] bg-deepBlue">
       {/* Top Navigation */}
       <Header toggleSidebar={toggleSidebar} />
 
