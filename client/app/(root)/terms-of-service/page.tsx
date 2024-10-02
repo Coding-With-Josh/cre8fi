@@ -1,4 +1,4 @@
-export const termsOfService = [
+ const termsOfService = [
   {
     title: "Account creation",
     description:

@@ -49,6 +49,12 @@ const navItems = [
     label: "Terms of Service",
     icon: LucideMessageCircleQuestion,
     href: "/terms-of-service",
+    subItems: [
+      {
+        label: "Policy",
+        href: "/terms-of-service/policy/page.tsx",
+      },
+    ],
   },
   {
     label: "Profile",
@@ -64,11 +70,16 @@ const navItems = [
 
 export function DashboardMenu({ children, baseHref }: DashboardMenuProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showPolicy, setShowPolicy] = useState(false);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
+  const handleTermsClick = () => {
+    setShowPolicy(!showPolicy); // Toggle the visibility of the policy submenu
+  };
+
   return (
-    <div className="flex flex-col h-[982px]  top-[39163px] left-[41285px] bg-deepBlue">
+    <div className="flex flex-col h-[982px] top-[39163px] left-[41285px] bg-deepBlue">
       {/* Top Navigation */}
       <Header toggleSidebar={toggleSidebar} />
 
@@ -87,14 +98,34 @@ export function DashboardMenu({ children, baseHref }: DashboardMenuProps) {
           </div>
           <nav className="p-4">
             <ul className="space-y-4">
-              {navItems.map(({ label, href, icon }) => (
+              {navItems.map(({ label, href, icon, subItems }) => (
                 <li key={href}>
                   <NavLink
                     label={label}
                     href={href}
                     baseHref={baseHref}
                     icon={icon}
+                    onClick={
+                      label === "Terms of Service"
+                        ? handleTermsClick
+                        : undefined
+                    }
                   />
+                  {/* Conditionally render Policy submenu if Terms of Service is clicked */}
+                  {label === "Terms of Service" && showPolicy && subItems && (
+                    <ul className="ml-4 mt-2 space-y-2">
+                      {subItems.map((subItem) => (
+                        <li key={subItem.href}>
+                          <NavLink
+                            label={subItem.label}
+                            href={subItem.href}
+                            baseHref={baseHref}
+                            icon={icon} // Reuse the parent icon or assign a new one if necessary
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -115,13 +146,21 @@ interface NavLinkPropType {
   href: string;
   baseHref?: string;
   icon: React.JSX;
+  onClick?: () => void;
 }
 
-const NavLink = ({ href, baseHref, label, icon: Icon }: NavLinkPropType) => {
+const NavLink = ({
+  href,
+  baseHref,
+  label,
+  icon: Icon,
+  onClick,
+}: NavLinkPropType) => {
   const pathname = usePathname();
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "flex items-center space-x-2 text-lightGray hover:text-primary hover:scale-105 transition duration-300 py-2 rounded px-1",
         (pathname === href ||
