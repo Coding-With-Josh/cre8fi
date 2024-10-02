@@ -112,3 +112,52 @@ export const termsOfService = [
         "Got questions about how we handle your data? We’re here to help! Feel free to reach out to our support team, and we’ll get back to you as soon as possible. By signing up for Cre8Fi, you’re agreeing to these terms of service and privacy policy. We’re here to empower you, and these guidelines are in place to keep everything running smoothly while protecting your rights. Let’s build something amazing together!",
     },
   ];
+ export const helpAndFAQs = [
+  {
+    title: "What is Cre8Fi?",
+    description:
+      "Cre8Fi is a Web3 platform designed to connect content creators with projects looking for their services. It provides a decentralized marketplace where creators can offer services like graphic design, writing, video editing, and more. Additionally, we use an intelligent project-matching algorithm to help projects find the right creators based on their skills and portfolios. In future versions, creators will also earn rewards through our content point system, which will be convertible to tokens.",
+  },
+  {
+    title: "How does the project-creator matching work?",
+    description: "abcd.",
+  },
+  {
+    title: "What services can creators offer on Cre8Fi?",
+    description: "abcd.",
+  },
+  {
+    title: "Is Cre8Fi built on blockchain?",
+    description: "abcd.",
+  },
+  {
+    title: "How does the content point system work?",
+    description: "abcd.",
+  },
+  {
+    title: "Can creators sell digital assets like NFTs on Cre8Fi?",
+    description: "abcd.",
+  },
+  {
+    title: "What are the benefits of being a verified creator or project?",
+    description: "abcd.",
+  },
+  {
+    title:
+      "What’s the difference between the content point system and token rewards?",
+    description: "abcd.",
+  },
+  {
+    title:
+      "How does Cre8Fi ensure fair collaboration between creators and projects?",
+    description: "abcd.",
+  },
+  {
+    title: "What blockchain technologies is Cre8Fi using?",
+    description: "abcd.",
+  },
+  {
+    title: "When will the token reward system be available?",
+    description: "abcd.",
+  },
+];
