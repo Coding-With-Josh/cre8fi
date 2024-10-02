@@ -19,7 +19,7 @@ export function UserButton() {
       <DropdownMenuTrigger asChild>
         <Button size="icon" className="flex-none rounded-full">
           <Image
-            src={"/avatar_placeholder.png"}
+            src={"/assets/Avatar.png"}
             alt="User profile picture"
             width={50}
             height={50}
