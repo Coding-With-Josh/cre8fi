@@ -59,7 +59,8 @@ export const termsOfService = [
     description:
       "Questions? Concerns? Just want to say hi? Reach out to us anytime, and we’ll get back to you as soon as we can.",
   },
-
+],
+privacyPolicy = [
   {
     title: "Privacy Policy",
     description:
