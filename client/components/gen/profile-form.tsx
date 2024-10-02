@@ -20,11 +20,11 @@ export const ProfileForm = () => {
   const form = useForm<ProfileUpdateDTO>({
     resolver: zodResolver(profileUpdateSchema),
     defaultValues: {
-      firstName: "Maryam",
-      lastName: "Olaitan",
-      phoneNumber: "+2349139330472",
-      email: "joyful@example.com",
-      bio: "",
+      firstName: "John",
+      lastName: "Doe",
+      phoneNumber: "+1 (xxx) xxxxxxxx",
+      email: "johndoe@example.com",
+      bio: "I'm John Doe, I love people and love been around them. ",
     },
   });
 
@@ -46,7 +46,7 @@ export const ProfileForm = () => {
             name="firstName"
             label="First Name"
             readonly={!editBio}
-            className="rounded-[50px] border-slate-300 hover:border-primary"
+            className="rounded-[50px] border-customGray "
           />
 
           <CustomFormField
@@ -54,7 +54,7 @@ export const ProfileForm = () => {
             name="lastName"
             label="Last Name"
             readonly={!editBio}
-            className="rounded-[50px] border-slate-300 hover:border-primary"
+            className="rounded-[50px] border-customGray"
           />
         </div>
 
@@ -66,7 +66,7 @@ export const ProfileForm = () => {
           >
             <PhoneInput
               readOnly={!editBio}
-              className="rounded-[50px] border-slate-300 hover:border-primary mt-2"
+              className="rounded-[50px] border-customGray mt-2"
             />
           </CustomFormFieldWithChild>
 
@@ -76,7 +76,7 @@ export const ProfileForm = () => {
             label="Email"
             readonly={!editBio}
             type="email"
-            className="rounded-[50px] border-slate-300 hover:border-primary"
+            className="rounded-[50px] border-customGray"
           />
         </div>
 
@@ -86,7 +86,7 @@ export const ProfileForm = () => {
           label="Bio"
           readonly={!editBio}
           type="textarea"
-          className="border-slate-300 hover:border-primary w-full"
+          className="border-customGray w-full"
         />
 
         <div className="w-full flex justify-end">
@@ -95,12 +95,12 @@ export const ProfileForm = () => {
               <Button
                 variant={"ghost"}
                 onClick={handleCancel}
-                className="w-[170px] hover:bg-indigo-600 text-indigo-50 duration-300 rounded-[40px]"
+                className="w-[170px] hover:bg-customBlue text-lightGray duration-300 rounded-[40px]"
               >
                 Cancel
               </Button>
 
-              <Button className="w-[170px] hover:bg-indigo-700 text-indigo-50 duration-300 rounded-[40px]">
+              <Button className="w-[170px] hover:bg-customBlue text-lightGray duration-300 rounded-[40px]">
                 Save
               </Button>
             </div>
@@ -108,7 +108,7 @@ export const ProfileForm = () => {
             <Button
               type="button"
               onClick={() => setEditBio(true)}
-              className="w-[170px] hover:bg-indigo-600 text-indigo-50 duration-300 rounded-[40px]"
+              className="w-[170px] hover:bg-customBlue text-lightGray duration-300 rounded-[40px]"
             >
               Edit Bio
             </Button>

@@ -7,7 +7,7 @@ export const ProfileAvatar = () => {
     <div className="mb-8 flex flex-col sm:flex-row sm:items-end items-center gap-4">
       <div className="relative w-32 h-32 mb-4">
         <img
-          src="/assets/test-image.jpeg"
+          src="/assets/Avatar.png"
           alt="Profile"
           className="w-full h-full rounded-full object-cover"
         />

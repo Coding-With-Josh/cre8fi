@@ -9,12 +9,12 @@ const SettingsPage = () => {
       <ProfileAvatar />
       <ProfileForm />
       <div className="mt-16">
-        <h2 className="text-2xl font-semibold">Change Password</h2>
+        <h2 className="text-2xl font-semibold ">Change Password</h2>
         <ChangePasswordForm />
       </div>
 
       <div className="flex">
-        <Button className="w-[400px] rounded-[40px] mt-10 mx-auto">
+        <Button className="w-[400px] rounded-[40px] hover:bg-customBlue text-lightGray mt-10 mx-auto">
           Save Changes
         </Button>
       </div>

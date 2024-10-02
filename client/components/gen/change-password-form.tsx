@@ -16,7 +16,7 @@ export const ChangePasswordForm = () => {
   const form = useForm<ChangePasswordDTO>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: {
-      oldPassword: "",
+      currentPassword: "",
       newPassword: "",
       confirmPassword: "",
     },
@@ -44,9 +44,9 @@ export const ChangePasswordForm = () => {
               <CustomFormField
                 type="password"
                 form={form}
-                name="oldPassword"
-                label="Old Password"
-                className="rounded-[50px] border-slate-300 hover:border-primary"
+                name="currentPassword"
+                label="Current Password"
+                className="rounded-[50px] border-lightGray hover:border-primary"
               />
 
               <CustomFormField
@@ -54,7 +54,7 @@ export const ChangePasswordForm = () => {
                 form={form}
                 name="newPassword"
                 label="New Password"
-                className="rounded-[50px] border-slate-300 hover:border-primary"
+                className="rounded-[50px] border-lightGray hover:border-primary"
               />
 
               <CustomFormField
@@ -62,7 +62,7 @@ export const ChangePasswordForm = () => {
                 form={form}
                 name="confirmPassword"
                 label="Confirm Password"
-                className="rounded-[50px] border-slate-300 hover:border-primary"
+                className="rounded-[50px] border-lightGray hover:border-primary"
               />
             </div>
 
@@ -70,7 +70,7 @@ export const ChangePasswordForm = () => {
               <Button variant={"ghost"} type="button" onClick={handleCancel}>
                 Cancel
               </Button>
-              <Button className="w-fit hover:bg-indigo-600 text-indigo-50 duration-300 rounded-[40px]">
+              <Button className="w-fit hover:bg-customBlue text-lightGray duration-300 rounded-[40px]">
                 Change Password
               </Button>
             </div>
@@ -81,7 +81,7 @@ export const ChangePasswordForm = () => {
           <Button
             type="button"
             onClick={() => setChangePassword(!changePassword)}
-            className="max-w-[200px] rounded-[40px]"
+            className="max-w-[200px] rounded-[40px] hover:bg-customBlue text-lightGray"
           >
             Change Password
           </Button>

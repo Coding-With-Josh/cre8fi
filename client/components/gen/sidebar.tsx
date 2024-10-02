@@ -75,14 +75,14 @@ export function DashboardMenu({ children, baseHref }: DashboardMenuProps) {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <aside
-          className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 shadow-lg transform transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-y-0 left-0 z-50 w-64 bg-deepGray shadow-lg transform transition-transform duration-300 ease-in-out ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           } lg:translate-x-0 lg:static lg:inset-0 lg:top-16 lg:h-[calc(100vh-4rem)]`}
         >
           <div className="flex items-center justify-between p-4 border-b lg:hidden">
             <Logo />
             <button onClick={toggleSidebar}>
-              <X className="h-6 w-6 text-gray-200" />
+              <X className="h-6 w-6 text-lightGray" />
             </button>
           </div>
           <nav className="p-4">
@@ -123,7 +123,7 @@ const NavLink = ({ href, baseHref, label, icon: Icon }: NavLinkPropType) => {
     <Link
       href={href}
       className={cn(
-        "flex items-center space-x-2 text-slate-200 hover:text-primary hover:scale-105 transition duration-300 py-2 rounded px-1",
+        "flex items-center space-x-2 text-lightGray hover:text-primary hover:scale-105 transition duration-300 py-2 rounded px-1",
         (pathname === href ||
           (pathname.startsWith(href) && href !== baseHref)) &&
           "text-primary scale-105"
