@@ -64,12 +64,12 @@ export const termsOfService = [
 const TermsOfServicesPage = () => {
   return (
     <main className="m-20">
-      <h1 className="m-5 text-left text-customBlue ">Terms of Services</h1>
+      <h1 className="m-5 text-left text-customBlue font-bold text-2xl">Terms of Services</h1>
       <section>
         {termsOfService.map((term, index) => (
           <div key={index} className="text-left m-5">
-            <h2>{term.title}</h2>
-            <p className="mt-5  ">{term.description}</p>
+            <h2 className="font-medium text-xl">{term.title}</h2>
+            <p className="mt-5 text-lightGray font-normal text-sm ">{term.description}</p>
           </div>
         ))}
       </section>
