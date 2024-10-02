@@ -1,16 +1,10 @@
 from django.urls import path
-from .views import PostCreateView, CommentCreateView, ReplyCreateView
+from .views import PostViewSet, CommentViewSet, ReplyViewSet
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path("posts/", PostCreateView.as_view(), name="create-post"),
-    path(
-        "posts/<int:post_id>/comments/",
-        CommentCreateView.as_view(),
-        name="create-comment",
-    ),
-    path(
-        "comments/<int:comment_id>/replies/",
-        ReplyCreateView.as_view(),
-        name="create-reply",
-    ),
-]
+router = DefaultRouter()
+router.register(r"posts", PostViewSet)
+router.register(r"posts/(?P<post_id>\d+)/comments", CommentViewSet, basename="comment")
+router.register(r"comments/(?P<comment_id>\d+)/replies", ReplyViewSet, basename="reply")
+
+urlpatterns = router.urls

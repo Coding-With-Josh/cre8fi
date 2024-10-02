@@ -1,16 +1,27 @@
-from django.urls import path
-from .views import UserRegistrationView  # SuperUserRegistrationView
-from .views import FollowUserView, UnfollowUserView #CustomAuthToken
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+# from .views import UserRegistrationView  # SuperUserRegistrationView?
+from .views import (
+    FollowViewSet,
+    UserProfileViewSet,
+    UserViewSet,
+)  # CustomAuthToken
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
 
+
+router = DefaultRouter()
+router.register(r"profiles", UserProfileViewSet)
+router.register(r"users", UserViewSet)
+
+
 urlpatterns = [
-    path("register/", UserRegistrationView.as_view(), name="user-register"),
-    path("follow/", FollowUserView.as_view(), name="follow-user"),
-    path("unfollow/", UnfollowUserView.as_view(), name="unfollow-user"),
-    # path("login/", CustomAuthToken.as_view(), name="api_login"),
-    path("login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("follow/<int:pk>/", FollowViewSet.as_view({"post": "follow_user"})),
+    path("unfollow/<int:pk>/", FollowViewSet.as_view({"post": "unfollow_user"})),
+    path("followers/", FollowViewSet.as_view({"get": "list_followers"})),
+    path("following/", FollowViewSet.as_view({"get": "list_following"})),
+    path("", include(router.urls)),
 ]

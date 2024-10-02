@@ -3,7 +3,30 @@ from django.db import models
 # Create your models here.
 
 from django.db import models
-from django.contrib.auth.models import AbstractUser, Group , Permission
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
+
+SKILLS_CHOICES = [
+    ("design", "Design"),
+    ("writing", "Writing"),
+    ("programming", "Programming"),
+    ("marketing", "Marketing"),
+    ("management", "Management"),
+    ("nft", "NFT Creation"),
+    ("content", "Content Creation"),
+    ("teamwork", "Teamwork"),
+    ("adaptability", "Adaptability"),
+    ("attention_to_detail", "Attention to Detail"),
+    ("collaboration", "Collaboration"),
+    # Add more as needed
+]
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=50, choices=SKILLS_CHOICES)
+
+    def __str__(self):
+        return self.name
 
 
 class CustomUser(AbstractUser):
@@ -21,6 +44,8 @@ class CustomUser(AbstractUser):
     followers = models.ManyToManyField(
         "self", related_name="following", symmetrical=False, blank=True
     )
+    ROLE_CHOICES = [("creator", "Creator"), ("project_manager", "Project Manager")]
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="creator")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -42,7 +67,7 @@ class CustomUser(AbstractUser):
     )
 
     def follow(self, user):
-        if user not in self.following.all():
+        if user != self and user not in self.following.all():
             self.following.add(user)
 
     def unfollow(self, user):
@@ -51,6 +76,12 @@ class CustomUser(AbstractUser):
 
     def is_following(self, user):
         return user in self.following.all()
+
+    def get_followers(self):
+        return self.followers.all()
+
+    def get_following(self):
+        return self.following.all()
 
     def __str__(self):
         return self.username
@@ -65,6 +96,7 @@ class UserProfile(models.Model):
     nickname = models.CharField(max_length=30, blank=True)
     back_pic = models.ImageField(upload_to="back_pic/", blank=True, null=True)
     ratings = models.IntegerField(default=0)
+    skills = models.ManyToManyField(Skill, related_name="skills")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

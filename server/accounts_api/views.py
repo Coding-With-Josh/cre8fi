@@ -2,76 +2,66 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import UserCreationSerializer
-from .models import CustomUser
-from .serializers import FollowSerializer
+from .serializers import UserSerializer
+from .models import CustomUser, UserProfile
+from .serializers import FollowSerializer, UserProfileSerializer, UserCreationSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 
-class UserRegistrationView(generics.CreateAPIView):
-    # permission_classes = [AllowAny]
-    # def post(self, request):
-    #     serializer = UserCreationSerializer(data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    queryset = CustomUser.objects.all()
-    serializer_class = UserCreationSerializer
-    permission_classes = [AllowAny]
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()  # Queryset for all users
+    permission_classes = [IsAuthenticated]  # Require authentication for all actions
+
+    def get_serializer_class(self):
+        # Use UserCreationSerializer for create action and UserSerializer for other actions
+        if self.action == "create":
+            return UserCreationSerializer
+        return UserSerializer
 
 
-class FollowUserView(APIView):
-    def post(self, request):
-        serializer = FollowSerializer(data=request.data, context={"request": request})
-        if serializer.is_valid():
-            serializer.create(serializer.validated_data)
-            return Response(
-                {"message": "You are now following the user."},
-                status=status.HTTP_200_OK,
-            )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class FollowViewSet(viewsets.ViewSet):
+    permission_classes = [IsAuthenticated]
+
+    def follow_user(self, request, pk=None):
+        user_to_follow = CustomUser.objects.get(pk=pk)
+        request.user.follow(user_to_follow)
+        return Response(
+            {"message": "You are now following {}".format(user_to_follow.username)},
+            status=status.HTTP_200_OK,
+        )
+
+    def unfollow_user(self, request, pk=None):
+        user_to_unfollow = CustomUser.objects.get(pk=pk)
+        request.user.unfollow(user_to_unfollow)
+        return Response(
+            {"message": "You have unfollowed {}".format(user_to_unfollow.username)},
+            status=status.HTTP_200_OK,
+        )
+
+    def list_followers(self, request):
+        followers = request.user.get_followers()
+        return Response(
+            {"followers": [follower.username for follower in followers]},
+            status=status.HTTP_200_OK,
+        )
+
+    def list_following(self, request):
+        following = request.user.get_following()
+        return Response(
+            {"following": [followed_user.username for followed_user in following]},
+            status=status.HTTP_200_OK,
+        )
 
 
-class UnfollowUserView(APIView):
-    def post(self, request):
-        user = request.user
-        following_user_id = request.data.get("following_user_id")
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
 
-        try:
-            following_user = CustomUser.objects.get(id=following_user_id)
-            user.unfollow(following_user)
-            user.save()
-            return Response(
-                {"message": "You have unfollowed the user."}, status=status.HTTP_200_OK
-            )
-        except CustomUser.DoesNotExist:
-            return Response(
-                {"error": "User not found."}, status=status.HTTP_404_NOT_FOUND
-            )
-
-
-# class CustomAuthToken(ObtainAuthToken):
-#     def post(self, request, *args, **kwargs):
-#         serializer = self.serializer_class(
-#             data=request.data, context={"request": request}
-#         )
-#         serializer.is_valid(raise_exception=True)
-#         user = serializer.validated_data["user"]
-#         token, created = Token.objects.get_or_create(user=user)
-
-#         # Update last login time
-#         update_last_login(None, user)
-
-#         return Response(
-#             {
-#                 "token": token.key,
-#                 "user_id": user.pk,
-#                 "email": user.email,
-#                 "username": user.username,
-#                 "is_active": user.is_active,
-#             },
-#             status=status.HTTP_200_OK,
-#         )
+    def get_queryset(self):
+        # Return the profile of the authenticated user
+        return self.queryset.filter(user=self.request.user)

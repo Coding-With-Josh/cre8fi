@@ -3,35 +3,46 @@ from rest_framework.response import Response
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from .models import Post, Comment
+from rest_framework import viewsets
+
 from .serializers import PostSerializer, CommentSerializer
 
 
-class PostCreateView(generics.CreateAPIView):
+class PostViewSet(viewsets.ModelViewSet):
+    """
+    A viewset that provides the standard actions for the Post model.
+    """
+
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        # Automatically set the author to the logged-in user
-        serializer.save(author=self.request.user)
+    # Automatically handles create, update, retrieve, and delete
 
 
-# Create Comment API
-class CommentCreateView(generics.CreateAPIView):
+class CommentViewSet(viewsets.ModelViewSet):
+    """
+    A viewset that provides the standard actions for the Comment model.
+    """
+
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        # Attach the comment to the post (using the post_id passed in the URL)
-        post = Post.objects.get(id=self.kwargs["post_id"])
-        serializer.save(author=self.request.user, post=post)
+    def get_queryset(self):
+        # Get all comments for a specific post
+        post_id = self.kwargs.get("post_id")
+        return Comment.objects.filter(post_id=post_id)
 
 
-# Create Reply API
-class ReplyCreateView(generics.CreateAPIView):
+class ReplyViewSet(viewsets.ModelViewSet):
+    """
+    A viewset that provides the standard actions for Comment replies.
+    """
+
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        # Attach the reply to the comment (using the comment_id passed in the URL)
-        comment = Comment.objects.get(id=self.kwargs["comment_id"])
-        serializer.save(author=self.request.user, post=comment.post, parent=comment)
+    def get_queryset(self):
+        # Get replies for a specific comment
+        comment_id = self.kwargs.get("comment_id")
+        return Comment.objects.filter(parent_id=comment_id)
