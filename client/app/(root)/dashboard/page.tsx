@@ -250,7 +250,7 @@ const DashboardPage = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <img
-                  src="/assets/user1.png"
+                  src="/assets/Rectangle 34625155.png"
                   alt="User 1"
                   className="w-10 h-10 rounded-full"
                 />
