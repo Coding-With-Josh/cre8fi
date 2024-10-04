@@ -71,7 +71,9 @@ const HelpAndFAQsPage = () => {
           <div
             key={index}
             className={`text-left m-5 border-b pb-3 ${
-              expandedIndex === index ? "bg-customBlue border rounded-[20px]" : ""
+              expandedIndex === index
+                ? "bg-customBlue border rounded-[20px]"
+                : ""
             }`}
           >
             {/* FAQ Title */}
