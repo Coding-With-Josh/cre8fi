@@ -3,7 +3,9 @@
 import React from "react";
 import { EvervaultCard } from "../ui/evervault-card";
 import { CardSpotlight } from "../ui/card-spotlight";
-import { Button } from "../ui/moving-border";
+import { Button } from "../ui/button";
+import { GoArrowUpRight } from "react-icons/go";
+import Link from "next/link";
 
 const features = [
   {
@@ -17,11 +19,72 @@ const Features = () => {
       <h1 className="bg-clip bg-gradient-to-b from-transparent to-primary font-[helvetica] p-2 rounded-[0.4rem] text-2xl">
         Our Features
       </h1>
-      <CardSpotlight>
-        <h1>Earn while doing what you love</h1>
-        <h3>Participate in bounties and projects. Collaborate with others while making profit</h3>
-        <Button className="p-3">Learn more</Button>
-      </CardSpotlight>
+      <div className="flex items-center justify-center gap-[2rem] overflow-x-scroll">
+        <div className="bg-card rounded-[13px] h-fit w-[27rem] flex flex-col gap-[2rem] items-start justify-between  border-2 border-slate-600 px-[2rem] py-[3rem]">
+          <div>
+            {" "}
+            <h1 className="text-xl">Earn while doing what you love</h1>
+            <h3 className="text-md text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+              inventore animi dolor illo fugiat magni.
+            </h3>
+          </div>
+          <Link href="#">
+            <Button className="p-[-1rem] rounded-full w-[8rem]" size="sm">
+              Learn more
+              <GoArrowUpRight />{" "}
+            </Button>
+          </Link>
+        </div>
+        <div className="bg-card rounded-[13px] h-fit w-[27rem] flex flex-col gap-[2rem] items-start justify-between  border-2 border-slate-600 px-[2rem] py-[3rem]">
+          <div>
+            {" "}
+            <h1 className="text-xl">Earn while doing what you love</h1>
+            <h3 className="text-md text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+              inventore animi dolor illo fugiat magni.
+            </h3>
+          </div>
+          <Link href="#">
+            <Button className="p-[-1rem] rounded-full w-[8rem]" size="sm">
+              Learn more
+              <GoArrowUpRight />{" "}
+            </Button>
+          </Link>
+        </div>
+        <div className="bg-card rounded-[13px] h-fit w-[27rem] flex flex-col gap-[2rem] items-start justify-between  border-2 border-slate-600 px-[2rem] py-[3rem]">
+          <div>
+            {" "}
+            <h1 className="text-xl">Earn while doing what you love</h1>
+            <h3 className="text-md text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+              inventore animi dolor illo fugiat magni.
+            </h3>
+          </div>
+          <Link href="#">
+            <Button className="p-[-1rem] rounded-full w-[8rem]" size="sm">
+              Learn more
+              <GoArrowUpRight />{" "}
+            </Button>
+          </Link>
+        </div>
+        <div className="bg-card rounded-[13px] h-fit w-[27rem] flex flex-col gap-[2rem] items-start justify-between  border-2 border-slate-600 px-[2rem] py-[3rem]">
+          <div>
+            {" "}
+            <h1 className="text-xl">Earn while doing what you love</h1>
+            <h3 className="text-md text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+              inventore animi dolor illo fugiat magni.
+            </h3>
+          </div>
+          <Link href="#">
+            <Button className="p-[-1rem] rounded-full w-[8rem]" size="sm">
+              Learn more
+              <GoArrowUpRight />{" "}
+            </Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

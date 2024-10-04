@@ -94,7 +94,7 @@ export const Navbar = () => {
             Log In
           </Link>
           <Link
-            href="/signup"
+            href="/sign-up"
             className="block px-3 py-2 rounded-full text-base font-medium text-white bg-primary/30 hover:bg-primary/80 transition-all"
             onClick={() => setIsOpen(false)}
           >
