@@ -26,15 +26,16 @@ const navItems = [
 
 export default function Home() {
   return (
-    <div className="h-screen w-creen bg-background flex flex-col items-center justify-center">
+    <div className="h-screen w-creen bg-background flex flex-col items-center overflow-y-scroll overflow-x-hidden">
       {/* Radial gradient for the container to give a faded look */}
-      {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div> */}
 
-      <div className="flex flex-col items-center relative h-screen w-screen"> */}
+      <div className="flex flex-col items-center h-screen w-screen"> 
         <Navbar />
         <Hero />
-        <Vission_Mission />
-      {/* </div> */}
+         <Vission_Mission /> 
+         <Features/>
+     </div>
     </div>
   );
 }

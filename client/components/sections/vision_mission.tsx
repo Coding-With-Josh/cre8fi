@@ -10,7 +10,7 @@ export const Vission_Mission = () => {
         <Plus size={32} />
       </div>
       <div className="min-h-fit min-w-full flex items-center justify-between border border-primary px-[4rem] py-[2rem]">
-        <h1 className="text-[32px] font-medium">
+        <h1 className="text-2xl font-medium">
           Empower creators, foster
           <br /> collaborations, ensure
           <br /> transparency, and drive
@@ -25,7 +25,7 @@ export const Vission_Mission = () => {
         <div className="bg-gradient-to-b from-primary to-background min-h-[7rem] min-w-[15rem] flex items-center justify-center text-[35px] px-[3rem] font-bold gap-2">
           OUR VISION <Target size={35} />
         </div>
-        <h1 className="text-[32px] font-medium">
+        <h1 className="text-2xl font-medium">
           Cre8Fi is a decentralized social
           <br /> media on Solana, empowering <br />
           creators, fostering collaboration,
