@@ -18,7 +18,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed bg-transparent backdrop-blur-md border-b border-white/20 shadow-lg w-screen z-50">
+    <nav className="fixed bg-transparent backdrop-blur-md border-b border-slate-900/60 shadow-lg w-screen z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex-shrink-0">
@@ -32,7 +32,7 @@ export const Navbar = () => {
                   <Link
                     key={item.path}
                     href={item.path}
-                    className={`px-3 py-2 rounded-md text-xs font-medium transition-all duration-300 ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       pathname === item.path
                         ? "text-primary scale-105"
                         : "text-gray-300 hover:scale-105 hover:text-primary"
@@ -46,14 +46,14 @@ export const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link>
-              <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/30 hover:bg-primary/80 transition-colors duration-300">Sign Up</Link> */}
-              <button className="flex items-center gap-2 bg-gray-800/60 hover:bg-gray-800 transition-all px-4 py-2 rounded-[10px] border-2 border-white/5">
+               {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link> */}
+              <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">Sign Up</Link> 
+              {/* <button className="flex items-center gap-2 bg-gray-800/60 hover:bg-gray-800 transition-all px-4 py-2 rounded-[10px] border-2 border-white/5">
                 <Link href="/login" className="">
                   Login
                 </Link>
                 <LogInIcon size={18}/>
-              </button>
+              </button> */}
 
             </div>
           </div>
