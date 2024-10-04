@@ -1,5 +1,12 @@
-import React from "react";
+import Image from "next/image";
 
 export const Logo = () => {
-  return <span className="font-bold text-2xl text-primary">Cre8Fi</span>;
+  return (
+    <Image
+      src={"/assets/crefilogo2.png"}
+      width={166}
+      height={50}
+      alt={"logo"}
+    />
+  );
 };
