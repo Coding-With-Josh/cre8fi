@@ -10,6 +10,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+ const handleSignup = () => {
+
+ };
+
+
+
 const SignUp = () => {
   return (
     <div className="flex items-center justify-center w-screen h-screen">
