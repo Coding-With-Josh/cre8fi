@@ -17,10 +17,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("api.urls")),
+    path("", include("post_api.urls")),
     path("account/", include("accounts_api.urls")),
-    path("create/", include("post_api.urls")),
+<<<<<<< HEAD
+    path("add/", include("stories.urls")),
+=======
+    path("add/", include("post_api.urls")),
+>>>>>>> 4ad143c08146a11752a15e8267d2b09165f53ce3
+    path("user-dashboard/", include("user_dashboard.urls")),
 ]

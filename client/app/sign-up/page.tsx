@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Spotlight } from "@/components/ui/spotlight";
 import { IconBrandGoogle } from "@tabler/icons-react";
+import { useState } from 'react';
 import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,7 +39,7 @@ const SignUp = () => {
             </span>
           </Button>
         </div>
-        <form className="flex flex-col space-y-5 mt-3">
+        <form onSubmit={handleSignup} className="flex flex-col space-y-5 mt-3">
           <div className="flex flex-col space-y-2">
             <Label className="text-gray">Username</Label>
             <Input placeholder="example123" autoSave="true" autoFocus />

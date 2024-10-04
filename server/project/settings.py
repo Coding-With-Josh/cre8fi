@@ -42,12 +42,19 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "rest_framework.authtoken",
+    "corsheaders",
     "api",
     "accounts_api",
     "post_api",
+    "user_dashboard",
+<<<<<<< HEAD
+    "stories",
+=======
+>>>>>>> 4ad143c08146a11752a15e8267d2b09165f53ce3
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     'corsheaders.middleware.CorsMiddleware',
@@ -121,6 +128,35 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Allow all domains
+CORS_ALLOW_ALL_ORIGINS = True
+
+# OR allow specific domains
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",  # our site
+    "http://localhost:3000",
+]
+
+# Optional: Allow credentials (cookies, authorization headers, etc.)
+CORS_ALLOW_CREDENTIALS = True
+
+# Optional: Allow specific HTTP methods
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]
+
+# Optional: Allow specific headers
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+    "x-requested-with",
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
