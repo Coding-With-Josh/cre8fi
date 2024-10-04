@@ -23,6 +23,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("post_api.urls")),
     path("account/", include("accounts_api.urls")),
+<<<<<<< HEAD
     path("add/", include("stories.urls")),
+=======
+    path("add/", include("post_api.urls")),
+>>>>>>> 4ad143c08146a11752a15e8267d2b09165f53ce3
     path("user-dashboard/", include("user_dashboard.urls")),
 ]

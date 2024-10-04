@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     "accounts_api",
     "post_api",
     "user_dashboard",
+<<<<<<< HEAD
     "stories",
+=======
+>>>>>>> 4ad143c08146a11752a15e8267d2b09165f53ce3
 ]
 
 MIDDLEWARE = [
