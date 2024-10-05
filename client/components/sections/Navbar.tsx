@@ -48,13 +48,10 @@ export const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6 gap-4">
                {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link> */}
-<<<<<<< Updated upstream
-              <Link href="/sign-up" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">Sign Up</Link> 
-=======
+
               <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">View Demo</Link> 
               <WalletConnection/>
 
->>>>>>> Stashed changes
               {/* <button className="flex items-center gap-2 bg-gray-800/60 hover:bg-gray-800 transition-all px-4 py-2 rounded-[10px] border-2 border-white/5">
                 <Link href="/login" className="">
                   Login
