@@ -3,6 +3,7 @@
 import { LogIn, LogInIcon, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import WalletConnection from "@/components/wallet/WalletConnection"
 import { useState } from "react";
 import { Button } from "../ui/button";
 
@@ -45,9 +46,15 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6">
+            <div className="ml-4 flex items-center md:ml-6 gap-4">
                {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link> */}
+<<<<<<< Updated upstream
               <Link href="/sign-up" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">Sign Up</Link> 
+=======
+              <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">View Demo</Link> 
+              <WalletConnection/>
+
+>>>>>>> Stashed changes
               {/* <button className="flex items-center gap-2 bg-gray-800/60 hover:bg-gray-800 transition-all px-4 py-2 rounded-[10px] border-2 border-white/5">
                 <Link href="/login" className="">
                   Login
@@ -87,19 +94,20 @@ export const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/login"
-            className="block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-primary hover:bg-primary/5 transition-all"
-            onClick={() => setIsOpen(false)}
-          >
-            Log In
-          </Link>
-          <Link
             href="/sign-up"
             className="block px-3 py-2 rounded-full text-base font-medium text-white bg-primary/30 hover:bg-primary/80 transition-all"
             onClick={() => setIsOpen(false)}
           >
-            Sign Up
+            Join waitlist
           </Link>
+          <Link
+            href="/login"
+            className="block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-primary hover:bg-primary/5 transition-all"
+            onClick={() => setIsOpen(false)}
+          >
+            View Demo
+          </Link>
+          <WalletConnection/>
         </div>
       </div>
     </nav>
