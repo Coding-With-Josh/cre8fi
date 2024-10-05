@@ -2,6 +2,7 @@ import Features from "@/components/sections/Features";
 import Hero from "@/components/sections/hero";
 import { Navbar } from "@/components/sections/Navbar";
 import { Vission_Mission } from "@/components/sections/vision_mission";
+import { WaitlistForm } from "@/components/sections/waitlist_form";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
@@ -26,7 +27,7 @@ const navItems = [
 
 export default function Home() {
   return (
-    <div className="h-screen w-creen bg-background flex flex-col items-center overflow-y-scroll overflow-x-hidden">
+    <div className="h-screen w-screen bg-background flex flex-col items-center">
       {/* Radial gradient for the container to give a faded look */}
       {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div> */}
 
@@ -35,6 +36,7 @@ export default function Home() {
         <Hero />
          <Vission_Mission /> 
          <Features/>
+         <WaitlistForm/>
      </div>
     </div>
   );

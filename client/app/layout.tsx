@@ -3,6 +3,7 @@ import { Nunito_Sans, Roboto } from "next/font/google";
 
 import "./globals.css";
 import { Loader } from "@/components/reusable/loader";
+import WalletContextProvider from "@/providers/WalletContextProvider";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -32,8 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Loader/>
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <WalletContextProvider>
+          <Loader />
+          {children}
+        </WalletContextProvider>
+      </body>
     </html>
   );
 }
