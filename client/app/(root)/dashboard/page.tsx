@@ -5,7 +5,7 @@ import { useState } from "react";
 interface Post {
   id: number;
   content: string;
-  comments: string[]; // Array to hold comments for each post
+  comments: string[]; 
 }
 
 const DashboardPage = () => {
@@ -180,6 +180,15 @@ const DashboardPage = () => {
                           />
                           <span className="text-sm">Comment</span>
                         </button>
+
+                        <button className="flex items-center text-lightGray focus:outline-none">
+                          <img
+                            src="/assets/retweeet.png"
+                            alt="Retweet"
+                            className="w-5 h-5 mr-2"
+                          />
+                          <span className="text-sm">Retweet</span>
+                        </button>
                       </div>
 
                       <button className="flex items-center text-lightGray focus:outline-none">
@@ -250,12 +259,26 @@ const DashboardPage = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <img
-                  src="/assets/Rectangle 34625155.png"
-                  alt="User 1"
+                  src="/assets/Profile img 1 (3).png"
+                  alt="Bessie"
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <p className="font-medium">John Doe</p>
+                  <p className="font-medium">Bessie</p>
+                  <button className="text-customBlue text-sm">
+                    Add Friend
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (4).png"
+                  alt="Edwards "
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium"> Edwards</p>
                   <button className="text-customBlue text-sm">
                     Add Friend
                   </button>
@@ -263,17 +286,62 @@ const DashboardPage = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <img
-                  src="/assets/user2.png"
-                  alt="User 2"
+                  src="/assets/Profile img 1 (6).png"
+                  alt="Savannah Nguyen"
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <p className="font-medium">Jane Smith</p>
+                  <p className="font-medium">Savannah Nguyen</p>
                   <button className="text-customBlue text-sm">
                     Add Friend
                   </button>
                 </div>
               </div>
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (1).png"
+                  alt="Ronald"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Ronald</p>
+                  <button className="text-customBlue text-sm">
+                    Add Friend
+                  </button>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (7).png"
+                  alt="Jerome"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Jerome</p>
+                  <button className="text-customBlue text-sm">
+                    Add Friend
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1.png"
+                  alt="Dianne Russell"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Dianne Russell</p>
+                  <button className="text-customBlue text-sm">
+                    Add Friend
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4">
+              <button className=" text-sm font-semibold">
+                View All
+              </button>
             </div>
           </section>
         </div>
@@ -283,26 +351,77 @@ const DashboardPage = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <img
-                  src="/assets/page1.png"
-                  alt="Page 1"
+                  src="/assets/Profile img 1 (9).png"
+                  alt="Graphic Design"
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <p className="font-medium">Tech World</p>
+                  <p className="font-medium">Graphic Design</p>
                   <button className="text-customBlue text-sm">Like Page</button>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <img
-                  src="/assets/page2.png"
-                  alt="Page 2"
+                  src="/assets/Profile img 1 (10).png"
+                  alt="Technology news update"
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <p className="font-medium">Fitness Hub</p>
+                  <p className="font-medium">Technology news update</p>
                   <button className="text-customBlue text-sm">Like Page</button>
                 </div>
               </div>
+
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (11).png"
+                  alt="Freelancing tips"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Freelancing tips</p>
+                  <button className="text-customBlue text-sm">Like Page</button>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (12).png"
+                  alt="Marketing"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Marketing</p>
+                  <button className="text-customBlue text-sm">Like Page</button>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (13).png"
+                  alt="Blender tutorials"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Blender tutorials</p>
+                  <button className="text-customBlue text-sm">Like Page</button>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/assets/Profile img 1 (14).png"
+                  alt="Power of learning"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="font-medium">Power of learning</p>
+                  <button className="text-customBlue text-sm">Like Page</button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4">
+              <button className=" text-sm font-semibold">
+                View All
+              </button>
             </div>
           </section>
         </div>
