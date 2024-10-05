@@ -14,13 +14,13 @@ const Marketplace: React.FC = () => {
               id: 1,
               name: "Axie B",
               imgSrc: "/assets/Frame 131.png",
-              price: "75",
+              
             },
             {
               id: 2,
               name: "Axie C",
               imgSrc: "/assets/image 137.png",
-              price: "100",
+              
             },
             
               
@@ -28,7 +28,7 @@ const Marketplace: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-lightGray p-8">
+    <div className=" bg-gray-900 text-lightGray p-8">
       {/* Content to Sell Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">Market Place</h2>
@@ -171,12 +171,12 @@ const Marketplace: React.FC = () => {
           </div>
           {axies.map((axie) => (
             <div key={axie.id} className="bg-[#212330] p-6 rounded-lg">
-              <h3 className="text-lg font-medium">{axie.name}</h3>
+              {/* <h3 className="text-lg font-medium">{axie.name}</h3> */}
 
               <img
                 src={axie.imgSrc}
                 alt={axie.name}
-                className="w-full h-40 object-cover rounded-lg mb-4"
+                className="w-50 h-50  object-cover rounded-lg mb-4"
               />
             </div>
           ))}

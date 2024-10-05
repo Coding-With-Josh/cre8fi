@@ -37,7 +37,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen">
+    <div className="flex flex-col lg:flex-row ">
       <div className="flex-1 flex flex-col">
         <main className="flex-1 p-6 ">
           {/* User Profiles */}
