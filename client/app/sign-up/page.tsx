@@ -10,9 +10,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
- const handleSignup = () => {
+ // const handleSignup = () => {
 
- };
+ // };
 
 
 
@@ -45,7 +45,7 @@ const SignUp = () => {
             </span>
           </Button>
         </div>
-        <form onSubmit={handleSignup} className="flex flex-col space-y-5 mt-3">
+        <form className="flex flex-col space-y-5 mt-3">
           <div className="flex flex-col space-y-2">
             <Label className="text-gray">Username</Label>
             <Input placeholder="example123" autoSave="true" autoFocus />
