@@ -99,7 +99,7 @@ const WalletConnection = () => {
           ) : (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button className="flex gap-2 bg-black text-[20px] md:text-[30px] text-white ring-black ring-2 h-[40px] md:h-[60px] border-2 border-white font-slackey z-50">
+                <Button variant={"outline"}>
                   <div className="truncate md:w-[150px] w-[100px]">
                     {publicKey.toBase58()}
                   </div>
