@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -25,7 +26,17 @@ const WalletConnection = () => {
 
   const [open, setOpen] = useState<boolean>(false);
   const [balance, setBalance] = useState<number | null>(null);
-  const [userWalletAddress, setUserWalletAddress] = useState<string>("");
+  const [userWalletAddress, setUserWalletAddress] = useState<string | null>(
+    null
+  );
+
+  useEffect(() => {
+    setUserWalletAddress(publicKey?.toBase58()!);
+  }, [publicKey]); // get public key then post to database
+
+  useEffect(() => {
+    setUserWalletAddress(publicKey?.toBase58()!);
+  }, [publicKey]); // get public key then post to database
   const [disconnected, setDisconnected] = useState(true);
 
   useEffect(() => {

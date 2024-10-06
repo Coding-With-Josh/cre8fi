@@ -79,7 +79,7 @@ export function DashboardMenu({ children, baseHref }: DashboardMenuProps) {
   };
 
   return (
-    <div className="flex flex-col h-[982px] top-[39163px] left-[41285px] bg-deepBlue">
+    <div className="flex flex-col h-screen  bg-deepBlue">
       {/* Top Navigation */}
       <Header toggleSidebar={toggleSidebar} />
 
