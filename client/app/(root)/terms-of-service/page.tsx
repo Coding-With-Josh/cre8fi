@@ -63,13 +63,19 @@
 
 const TermsOfServicesPage = () => {
   return (
-    <main className="m-20">
-      <h1 className="m-5 text-left text-customBlue font-bold text-2xl">Terms of Services</h1>
+    <main className="mx-4 md:mx-10 lg:mx-20 my-10">
+      <h1 className="text-left text-customBlue font-bold text-xl md:text-2xl lg:text-3xl">
+        Terms of Services
+      </h1>
       <section>
         {termsOfService.map((term, index) => (
-          <div key={index} className="text-left m-5">
-            <h2 className="font-medium text-xl">{term.title}</h2>
-            <p className="mt-5 text-lightGray font-normal text-sm ">{term.description}</p>
+          <div key={index} className="text-left my-5">
+            <h2 className="font-medium text-lg md:text-xl lg:text-2xl">
+              {term.title}
+            </h2>
+            <p className="mt-2 md:mt-4 text-lightGray font-normal text-sm md:text-base lg:text-lg">
+              {term.description}
+            </p>
           </div>
         ))}
       </section>
