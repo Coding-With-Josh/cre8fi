@@ -1,37 +1,25 @@
-"use client"
+"use client";
 import React from "react";
-// import { Line } from "react-chartjs-2";
-import "chart.js/auto";
 
 const Marketplace: React.FC = () => {
-  
-
-
   const axies = [
-    
-           
-            {
-              id: 1,
-              name: "Axie B",
-              imgSrc: "/assets/Frame 131.png",
-              
-            },
-            {
-              id: 2,
-              name: "Axie C",
-              imgSrc: "/assets/image 137.png",
-              
-            },
-            
-              
-          
+    {
+      id: 1,
+      name: "Axie B",
+      imgSrc: "/assets/Frame 131.png",
+    },
+    {
+      id: 2,
+      name: "Axie C",
+      imgSrc: "/assets/image 137.png",
+    },
   ];
 
   return (
-    <div className=" bg-gray-900 text-lightGray p-8">
+    <div className="bg-gray-900 text-lightGray p-4 md:p-8">
       {/* Content to Sell Section */}
       <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6">Market Place</h2>
+        <h2 className="text-xl md:text-2xl font-semibold mb-6">Market Place</h2>
         <div className="bg-[#212330] p-6 rounded-lg">
           <div className="flex space-x-6 overflow-x-auto">
             {[
@@ -53,7 +41,6 @@ const Marketplace: React.FC = () => {
                 imgSrc: "/assets/Rectangle 395.png",
                 price: "100",
               },
-
               {
                 id: 4,
                 name: "Product 4",
@@ -63,14 +50,13 @@ const Marketplace: React.FC = () => {
             ].map((product) => (
               <div
                 key={product.id}
-                className="flex-shrink-0 w-64 bg-[#2d2f3c] p-4 rounded-lg shadow-lg"
+                className="flex-shrink-0 w-44 md:w-64 bg-[#2d2f3c] p-4 rounded-lg shadow-lg"
               >
                 <img
                   src={product.imgSrc}
                   alt={product.name}
-                  className="w-full h-40 object-cover rounded-lg mb-4"
+                  className="w-full h-32 md:h-40 object-cover rounded-lg mb-4"
                 />
-               
               </div>
             ))}
           </div>
@@ -79,25 +65,27 @@ const Marketplace: React.FC = () => {
 
       {/* Overall Stats Section */}
       <section className="mb-12">
-        <div className="bg-[#212330] p-10">
-          <div className=" flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Overall Stats</h2>
+        <div className="bg-[#212330] p-6 md:p-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-0">
+              Overall Stats
+            </h2>
             <div className="flex space-x-4 text-gray-400">
-              <button className="px-4 py-2 bg-[#212330] rounded-lg text-[#FF9345]">
+              <button className="px-3 py-2 bg-[#212330] rounded-lg text-[#FF9345]">
                 24HR
               </button>
-              <button className="px-4 py-2 bg-[#212330] rounded-lg text-lightGray">
+              <button className="px-3 py-2 bg-[#212330] rounded-lg text-lightGray">
                 7D
               </button>
-              <button className="px-4 py-2 bg-[#212330] rounded-lg text-lightGray">
+              <button className="px-3 py-2 bg-[#212330] rounded-lg text-lightGray">
                 30D
               </button>
             </div>
           </div>
 
-          <div className="  grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Total Sales */}
-            <div className=" p-6 rounded-lg">
+            <div className="p-4 md:p-6 rounded-lg bg-[#2d2f3c]">
               <h3 className="text-lg font-medium mb-4 flex items-center">
                 <img
                   src="/assets/image 133.png"
@@ -106,16 +94,16 @@ const Marketplace: React.FC = () => {
                 />
                 Total Sales
               </h3>
-              <p className="text-3xl font-bold mb-4">5,295</p>
+              <p className="text-2xl md:text-3xl font-bold mb-4">5,295</p>
               <img
                 src="/assets/image 130.png"
                 alt="Total Sales Chart"
-                className="w-full h-40 object-cover rounded-lg"
+                className="w-full h-32 md:h-40 object-cover rounded-lg"
               />
             </div>
 
             {/* Total Volume */}
-            <div className=" p-6 rounded-lg">
+            <div className="p-4 md:p-6 rounded-lg bg-[#2d2f3c]">
               <h3 className="text-lg font-medium mb-4 flex items-center">
                 <img
                   src="/assets/token-branded_solana.png"
@@ -124,16 +112,16 @@ const Marketplace: React.FC = () => {
                 />
                 Total Volume
               </h3>
-              <p className="text-3xl font-bold mb-4">22,893</p>
+              <p className="text-2xl md:text-3xl font-bold mb-4">22,893</p>
               <img
                 src="/assets/image 132.png"
                 alt="Total Volume Chart"
-                className="w-full h-40 object-cover rounded-lg"
+                className="w-full h-32 md:h-40 object-cover rounded-lg"
               />
             </div>
 
             {/* Axies Sold */}
-            <div className=" p-6 rounded-lg">
+            <div className="p-4 md:p-6 rounded-lg bg-[#2d2f3c]">
               <h3 className="text-lg font-medium mb-4 flex items-center">
                 <img
                   src="/assets/image 135.png"
@@ -142,11 +130,11 @@ const Marketplace: React.FC = () => {
                 />
                 Axies Sold
               </h3>
-              <p className="text-3xl font-bold mb-4">4,061</p>
+              <p className="text-2xl md:text-3xl font-bold mb-4">4,061</p>
               <img
                 src="/assets/image 134.png"
                 alt="Axies Sold Chart"
-                className="w-full h-40 object-cover rounded-lg"
+                className="w-full h-32 md:h-40 object-cover rounded-lg"
               />
             </div>
           </div>
@@ -155,28 +143,25 @@ const Marketplace: React.FC = () => {
 
       {/* Axies Section */}
       <section>
-       
-        <div className=" bg-[#212330] p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-[#212330] p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
             <img
               src="/assets/image 135.png"
               alt="Axies Icon"
-              className="w-10 h-10 mr-2 border bg-[#1C1F25] "
+              className="w-10 h-10 mr-2 border bg-[#1C1F25]"
             />
-            <p className="text-3xl font-bold mb-4">Axies</p>
+            <p className="text-2xl md:text-3xl font-bold mb-4">Axies</p>
             <p>
               Axies are the key into a vast universe of experiences. Battle,
-              collect, breed, and befriend these adorable creatures.{" "}
+              collect, breed, and befriend these adorable creatures.
             </p>
           </div>
           {axies.map((axie) => (
-            <div key={axie.id} className="bg-[#212330] p-6 rounded-lg">
-              {/* <h3 className="text-lg font-medium">{axie.name}</h3> */}
-
+            <div key={axie.id} className="bg-[#2d2f3c] p-4 md:p-6 rounded-lg">
               <img
                 src={axie.imgSrc}
                 alt={axie.name}
-                className="w-50 h-50  object-cover rounded-lg mb-4"
+                className="w-full h-32 md:h-40 object-cover rounded-lg mb-4"
               />
             </div>
           ))}

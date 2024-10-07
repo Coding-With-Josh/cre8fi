@@ -53,43 +53,41 @@ const helpAndFAQs = [
 ];
 
 const HelpAndFAQsPage = () => {
-  // State to track the currently expanded FAQ
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  // Function to handle the expansion of the FAQ
   const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index); // Toggle the selected FAQ
+    setExpandedIndex(expandedIndex === index ? null : index);
   };
 
   return (
-    <main className="m-20">
-      <h1 className="m-5 text-left text-customBlue font-semibold text-2xl">
+    <main className="px-4 py-10 md:px-10 lg:px-20">
+      <h1 className="text-left text-customBlue font-semibold text-xl md:text-2xl lg:text-3xl mb-8">
         Everything you need to know about Cre8Fi
       </h1>
       <section>
         {helpAndFAQs.map((term, index) => (
           <div
             key={index}
-            className={`text-left m-5 border-b pb-3 ${
+            className={`text-left mb-5 border-b pb-3 ${
               expandedIndex === index
                 ? "bg-customBlue border rounded-[20px]"
                 : ""
             }`}
           >
-            {/* FAQ Title */}
             <div
-              className="flex justify-between items-center cursor-pointer p-3"
+              className="flex justify-between items-center cursor-pointer py-3 md:py-4"
               onClick={() => toggleExpand(index)}
             >
-              <h2 className="font-medium text-lg">{term.title}</h2>
-              <span className="text-sm font-light border border-lightGray rounded-full  w-6 h-6 flex items-center justify-center ">
+              <h2 className="font-medium text-lg md:text-xl lg:text-2xl">
+                {term.title}
+              </h2>
+              <span className="text-sm font-light border border-lightGray rounded-full w-6 h-6 flex items-center justify-center">
                 {expandedIndex === index ? "-" : "+"}
               </span>
             </div>
 
-            {/* Conditionally show the description if this FAQ is expanded */}
             {expandedIndex === index && (
-              <p className="mt-5 p-3 text-lightGray font-normal text-sm">
+              <p className="mt-3 md:mt-5 p-3 text-lightGray font-normal text-sm md:text-base">
                 {term.description}
               </p>
             )}

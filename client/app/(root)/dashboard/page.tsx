@@ -5,7 +5,7 @@ import { useState } from "react";
 interface Post {
   id: number;
   content: string;
-  comments: string[]; 
+  comments: string[];
 }
 
 const DashboardPage = () => {
@@ -37,70 +37,39 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row ">
+    <div className="flex flex-col lg:flex-row gap-6">
+      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        <main className="flex-1 p-6 ">
+        <main className="flex-1 p-6">
           {/* User Profiles */}
-          <section className="mb-24">
-            <div className="flex space-x-4 mt-4">
-              <div className="  ">
-                <img
-                  src="/assets/Rectangle 34625155.png"
-                  alt="Esther Howard"
-                  className="m-5 rounded-full object-cover   "
-                />
-                <div className="pl-5">
-                  <p className="text-sm text-lightGray ">Esther Howard</p>
+          <section className="mb-8">
+            <div className="flex flex-wrap justify-start items-center gap-4 mt-4">
+              {[
+                {
+                  name: "Esther Howard",
+                  img: "/assets/Rectangle 34625155.png",
+                },
+                { name: "Arlene McCoy", img: "/assets/Profile img 1.png" },
+                { name: "Robert Fox", img: "/assets/Profile img 1 (1).png" },
+                { name: "Flores", img: "/assets/Profile img 1 (2).png" },
+                { name: "Annette Black", img: "/assets/Add story f 7.png" },
+              ].map((profile, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <img
+                    src={profile.img}
+                    alt={profile.name}
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover"
+                  />
+                  <p className="text-sm text-lightGray">{profile.name}</p>
                 </div>
-              </div>
-              <div className="  ">
-                <img
-                  src="/assets/Profile img 1.png"
-                  alt="Arlene McCoy"
-                  className="m-5  rounded-full object-cover   "
-                />
-                <div className="pl-5">
-                  <p className="text-sm text-lightGray ">Arlene McCoy</p>
-                </div>
-              </div>
-              <div className="  space-x-3">
-                <img
-                  src="/assets/Profile img 1 (1).png"
-                  alt="Robert Fox"
-                  className="m-5 rounded-full object-cover   "
-                />
-                <div className="pl-5">
-                  <p className="text-sm text-lightGray ">Robert Fox</p>
-                </div>
-              </div>
-              <div className="  space-x-3">
-                <img
-                  src="/assets/Profile img 1 (2).png"
-                  alt="Flores"
-                  className="m-5 rounded-full object-cover   "
-                />
-                <div className="pl-5">
-                  <p className="text-sm text-lightGray ">Flores</p>
-                </div>
-              </div>
-
-              <div className="  space-x-3">
-                <img
-                  src="/assets/Add story f 7.png"
-                  alt="User 1"
-                  className="m-5 rounded-full object-cover   "
-                />
-                <div className="pl-5">
-                  <p className="text-sm text-lightGray ">Annette Black</p>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
           {/* Create Post Section */}
           <section className="mb-10">
-            <div className="mt-4 p-6 bg-[#212330] rounded-[10px] ">
-              <div className="mt-4 flex items-start space-x-2">
+            <div className="p-6 bg-[#212330] rounded-lg">
+              <div className="flex items-start space-x-2">
                 <img
                   src="/assets/Rectangle 40068.png"
                   alt="User Avatar"
@@ -110,12 +79,12 @@ const DashboardPage = () => {
                   value={newPost}
                   onChange={(e) => setNewPost(e.target.value)}
                   placeholder="What's on your mind?"
-                  className="flex-1 pt-4 pl-4 border bg-[#212330] border-lightGray rounded-[10px]"
+                  className="flex-1 pt-4 pl-4 bg-[#212330] border border-lightGray rounded-lg"
                 />
               </div>
 
               <div className="flex items-center justify-between mt-2">
-                <div className="flex items-center space-x-4">
+                <div className="flex space-x-4">
                   <button className="focus:outline-none">
                     <img
                       src="/assets/gallery.png"
@@ -138,10 +107,9 @@ const DashboardPage = () => {
                     />
                   </button>
                 </div>
-
                 <button
                   onClick={handleCreatePost}
-                  className="bg-customBlue text-lightGray px-4 py-2 rounded-[10px]"
+                  className="bg-customBlue text-lightGray px-4 py-2 rounded-lg"
                 >
                   Create Post
                 </button>
@@ -150,19 +118,19 @@ const DashboardPage = () => {
           </section>
 
           {/* Display Created Posts */}
-          <section className="mt-8">
-            <div className="mt-4 space-y-4">
+          <section>
+            <div className="space-y-4">
               {posts.length > 0 ? (
                 posts.map((post) => (
                   <div
                     key={post.id}
-                    className="bg-[#212330] border border-lightGray p-4 rounded-[20px] shadow-md"
+                    className="bg-[#212330] border border-lightGray p-4 rounded-lg shadow-md"
                   >
                     <p className="text-lightGray mb-4">{post.content}</p>
 
                     <div className="flex items-center justify-between">
                       <div className="flex space-x-6">
-                        <button className="flex items-center text-lightGray focus:outline-none">
+                        <button className="flex items-center text-lightGray">
                           <img
                             src="/assets/heart.png"
                             alt="Like"
@@ -171,8 +139,7 @@ const DashboardPage = () => {
                           <span className="text-sm">Like</span>
                         </button>
 
-                        {/* Comment Icon */}
-                        <button className="flex items-center text-lightGray focus:outline-none">
+                        <button className="flex items-center text-lightGray">
                           <img
                             src="/assets/message-2.png"
                             alt="Comment"
@@ -181,7 +148,7 @@ const DashboardPage = () => {
                           <span className="text-sm">Comment</span>
                         </button>
 
-                        <button className="flex items-center text-lightGray focus:outline-none">
+                        <button className="flex items-center text-lightGray">
                           <img
                             src="/assets/retweeet.png"
                             alt="Retweet"
@@ -191,7 +158,7 @@ const DashboardPage = () => {
                         </button>
                       </div>
 
-                      <button className="flex items-center text-lightGray focus:outline-none">
+                      <button className="flex items-center text-lightGray">
                         <img
                           src="/assets/Icon set.png"
                           alt="Share"
@@ -203,7 +170,6 @@ const DashboardPage = () => {
 
                     {/* Comments Section */}
                     <div className="mt-4">
-                      {/* Comment Input */}
                       <div className="flex items-start space-x-4">
                         <img
                           src="/assets/Rectangle 40068.png"
@@ -214,19 +180,18 @@ const DashboardPage = () => {
                           value={newComment}
                           onChange={(e) => setNewComment(e.target.value)}
                           placeholder="Write your comment..."
-                          className="flex-1 pt-2 pl-4 border bg-[#212330] border-lightGray rounded-[10px]"
+                          className="flex-1 pt-2 pl-4 bg-[#212330] border border-lightGray rounded-lg"
                         />
                       </div>
                       <div className="flex justify-end mt-2">
                         <button
-                          onClick={() => handleCreateComment(post.id)} // Pass the post id
-                          className="bg-customBlue text-lightGray px-4 py-2 rounded-[10px]"
+                          onClick={() => handleCreateComment(post.id)}
+                          className="bg-customBlue text-lightGray px-4 py-2 rounded-lg"
                         >
                           Comment
                         </button>
                       </div>
 
-                      {/* Display Comments */}
                       <div className="mt-2">
                         {post.comments.length > 0 ? (
                           post.comments.map((comment, index) => (
@@ -249,177 +214,90 @@ const DashboardPage = () => {
           </section>
         </main>
       </div>
-      {/* Sidebar: People You Might Know & Suggested Pages */}
-      <div className="w-[350px]   text-lightGray">
-        <div className=" border bg-[#1b1c22] p-6 m-6">
-          <section className="mb-10  ">
+
+      {/* Sidebar */}
+      <div className="w-full lg:w-[350px]  mr-24  text-lightGray">
+        <div className=" bg-[#1b1c22]  p-6 m-6 rounded-[10px] shadow-lg">
+          <section className="mb-10">
             <h3 className="text-lg font-semibold mb-4">
               People You Might Know
             </h3>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (3).png"
-                  alt="Bessie"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Bessie</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
+              {[
+                { name: "Bessie", img: "/assets/Profile img 1 (3).png" },
+                { name: "Edwards", img: "/assets/Profile img 1 (4).png" },
+                {
+                  name: "Savannah Nguyen",
+                  img: "/assets/Profile img 1 (6).png",
+                },
+                { name: "Ronald", img: "/assets/Profile img 1 (1).png" },
+                { name: "Jerome", img: "/assets/Profile img 1 (7).png" },
+                { name: "Dianne Russell", img: "/assets/Profile img 1.png" },
+              ].map((person, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <img
+                    src={person.img}
+                    alt={person.name}
+                    className="w-10 h-10 rounded-full"
+                  />
+                  <div>
+                    <p className="font-medium">{person.name}</p>
+                    <button className="text-customBlue text-sm">
+                      Add Friend
+                    </button>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (4).png"
-                  alt="Edwards "
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium"> Edwards</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (6).png"
-                  alt="Savannah Nguyen"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Savannah Nguyen</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (1).png"
-                  alt="Ronald"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Ronald</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (7).png"
-                  alt="Jerome"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Jerome</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1.png"
-                  alt="Dianne Russell"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Dianne Russell</p>
-                  <button className="text-customBlue text-sm">
-                    Add Friend
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="mt-4">
-              <button className=" text-sm font-semibold">
-                View All
-              </button>
+              ))}
             </div>
           </section>
         </div>
-        <div className=" border bg-[#1b1c22] p-6 m-6">
-          <section className="">
+        <div className=" bg-[#1b1c22] p-6 m-6 rounded-[10px] shadow-lg">
+          <section>
             <h3 className="text-lg font-semibold mb-4">Suggested Pages</h3>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (9).png"
-                  alt="Graphic Design"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Graphic Design</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
+              {[
+                {
+                  name: "Graphic Design",
+                  imgSrc: "/assets/Profile img 1 (9).png",
+                },
+                {
+                  name: "Technology news update",
+                  imgSrc: "/assets/Profile img 1 (10).png",
+                },
+                {
+                  name: "Freelancing tips",
+                  imgSrc: "/assets/Profile img 1 (11).png",
+                },
+                { name: "Marketing", imgSrc: "/assets/Profile img 1 (12).png" },
+                {
+                  name: "Blender tutorials",
+                  imgSrc: "/assets/Profile img 1 (13).png",
+                },
+                {
+                  name: "Power of learning",
+                  imgSrc: "/assets/Profile img 1 (14).png",
+                },
+              ].map((page, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-3 p-2 hover:bg-[#2a2b30] rounded transition duration-200"
+                >
+                  <img
+                    src={page.imgSrc}
+                    alt={page.name}
+                    className="w-10 h-10 rounded-full"
+                  />
+                  <div>
+                    <p className="font-medium text-lightGray">{page.name}</p>
+                    <button className="text-customBlue text-sm hover:underline focus:outline-none">
+                      Like Page
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (10).png"
-                  alt="Technology news update"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Technology news update</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (11).png"
-                  alt="Freelancing tips"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Freelancing tips</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (12).png"
-                  alt="Marketing"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Marketing</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (13).png"
-                  alt="Blender tutorials"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Blender tutorials</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/assets/Profile img 1 (14).png"
-                  alt="Power of learning"
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">Power of learning</p>
-                  <button className="text-customBlue text-sm">Like Page</button>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="mt-4">
-              <button className=" text-sm font-semibold">
+              <button className="text-sm font-semibold text-customBlue hover:underline focus:outline-none">
                 View All
               </button>
             </div>
