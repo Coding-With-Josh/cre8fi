@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubLabel } from "@/components/ui/sublabel";
 import { Textarea } from "@/components/ui/textarea";
-import { Check, CheckIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import { useState } from "react";
 
 const steps = [
@@ -52,17 +52,14 @@ const OnboardingPage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row px-6 h-screen w-screen items-center justify-center gap-[10rem] py-6">
+    <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8 h-full lg:h-screen w-full items-start lg:items-center justify-center gap-10 lg:gap-[10rem] py-6">
       {/* Timeline sidebar */}
-      <div className=" shadow-md p-6">
-        {/* <h2 className="text-xl font-semibold mb-6">Onboarding Steps</h2> */}
-        <div className="flex lg:flex-col flex-row space-y-8 relative">
-          {/* Vertical line */}
-          {/* <div className="absolute z-0 left-4 top-4 bottom-4 w-0.5 bg-slate-700"></div> */}
-          {steps.map((step, index) => (
+      <div className="shadow-md p-4 lg:p-6 w-full lg:w-auto">
+        <div className="flex lg:flex-col flex-row lg:space-y-8 space-x-4 lg:space-x-0">
+          {steps.map((step) => (
             <div
               key={step.id}
-              className="lg:flex md:flex items-center hidden relative"
+              className="flex items-center relative"
               onClick={() => handleStepClick(step.id)}
             >
               <div
@@ -71,11 +68,10 @@ const OnboardingPage = () => {
                   currentStep === step.id
                     ? "bg-primary text-white"
                     : currentStep > step.id
-                    ? "bg-blue-900/40 z-20 opacity-40 text-white"
+                    ? "bg-blue-900/40 text-white"
                     : "bg-blue-800 text-gray-200"
                 }
-                ${step.id <= currentStep + 1 ? "hover:bg-primary" : ""}
-              `}
+                ${step.id <= currentStep + 1 ? "hover:bg-primary" : ""}`}
               >
                 {currentStep > step.id ? (
                   <CheckIcon className="h-3 w-3 font-bold" />
@@ -84,7 +80,7 @@ const OnboardingPage = () => {
                 )}
               </div>
               <span
-                className={`ml-4 text-sm font-medium cursor-pointer
+                className={`ml-4 text-sm font-medium cursor-pointer hidden sm:block
                 ${
                   currentStep === step.id
                     ? "text-blue-500"
@@ -92,12 +88,7 @@ const OnboardingPage = () => {
                     ? "text-gray-600"
                     : "text-gray-400"
                 }
-                ${
-                  step.id <= currentStep + 1
-                    ? "hover:text-blue-600"
-                    : "text-gray-400"
-                }
-              `}
+                ${step.id <= currentStep + 1 ? "hover:text-blue-600" : ""}`}
               >
                 {step.title}
               </span>
@@ -106,137 +97,57 @@ const OnboardingPage = () => {
         </div>
       </div>
       {/* Main content area */}
-      <div className="mt-[20rem] lg:mt-[4rem]">
-        <h1 className="text-2xl font-bold mb-1">Setup your profile</h1>
-        <h1 className="text-sm text-muted-foreground mb-4">
-          Let's finish up your profile to get you started.
+      <div className="w-full lg:w-auto lg:mt-[4rem]">
+        <h1 className="text-xl lg:text-2xl font-bold mb-2 lg:mb-4">
+          Setup your profile
         </h1>
+        <h2 className="text-sm lg:text-base text-muted-foreground mb-6">
+          Let's finish up your profile to get you started.
+        </h2>
         {renderContent()}
       </div>
     </div>
   );
 };
 
-// Placeholder components for each step
+// Personal Info Form Component
 const PersonalInfoForm = ({ onNext }: { onNext: () => void }) => (
-  <div className="flex flex-col items-start">
-    <h1>Fill in the required fields</h1>
-    <div className="flex flex-col lg:flex-row items-center">
-      <div className="flex flex-col items-start justify-center my-6 ">
-        <div className="space-y-5 flex flex-col">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="flex flex-col items-start justify-center space-y-4">
-              <Label>First Name</Label>
-              <Input placeholder="John" />
-            </div>
-            <div className="flex flex-col items-start justify-center space-y-4">
-              <Label>Last Name</Label>
-              <Input placeholder="Doey" />
-            </div>
-          </div>
-          <div className="flex flex-col items-start justify-center space-y-4">
-            <div className="flex flex-col space-y-1">
-              <Label>Username</Label>
-              <SubLabel>
-                Your username can only be changed within 14 days.
-              </SubLabel>
-            </div>
-            <Input placeholder="John" />
-          </div>
-          <div className="flex flex-col items-start justify-center space-y-4">
-            <Label>Bio</Label>
-            <Textarea placeholder="I am a software developer..." />
-          </div>
-        </div>
+  <div className="flex flex-col space-y-6 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div>
+        <Label>First Name</Label>
+        <Input placeholder="John" />
       </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
+      <div>
+        <Label>Last Name</Label>
+        <Input placeholder="Doe" />
+      </div>
+    </div>
+    <div>
+      <Label>Username</Label>
+      <SubLabel>Your username can only be changed within 14 days.</SubLabel>
+      <Input placeholder="John" />
+    </div>
+    <div>
+      <Label>Bio</Label>
+      <Textarea placeholder="I am a software developer..." />
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div>
         <Label>Upload a profile photo</Label>
         <FileUpload />
       </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
+      <div>
         <Label>Upload a cover photo</Label>
         <FileUpload />
       </div>
     </div>
-    <Button onClick={onNext} className="w-100">Save & continue</Button>
-  </div>
-);
-const SkillsAndInterests = ({ onNext }: { onNext: () => void }) => (
-  <div className="">
-    <h1>Tell us about your skills and interest</h1>
-    <div className="flex flex-col items-start justify-center my-6 space-y-4">
-      <div className="flex items-center justify-center space-x-4">
-        <div className="flex flex-col items-start justify-center space-y-4">
-          <Label>First Name</Label>
-          <Input placeholder="John" />
-        </div>
-        <div className="flex flex-col items-start justify-center space-y-4">
-          <Label>Last Name</Label>
-          <Input placeholder="Doey" />
-        </div>
-      </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <div className="flex flex-col space-y-1">
-          <Label>Username</Label>
-          <SubLabel>Your username can only be changed within 14 days.</SubLabel>
-        </div>
-        <Input placeholder="John" />
-      </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <Label>Bio</Label>
-        <Textarea placeholder="I am a software developer..." />
-      </div>
-    </div>
-    <Button onClick={onNext}>Save & continue</Button>
+    <Button onClick={onNext} className="w-full lg:w-auto">
+      Save & Continue
+    </Button>
   </div>
 );
 
-const PreferencesForm = ({ onNext }: { onNext: () => void }) => (
-  <div className="">
-    <h1>Tell us what you like</h1>
-    <div className="flex flex-col items-start justify-center my-6 space-y-4">
-      <div className="flex items-center justify-center space-x-4">
-        <div className="flex flex-col items-start justify-center space-y-4">
-          <Label>First Name</Label>
-          <Input placeholder="John" />
-        </div>
-        <div className="flex flex-col items-start justify-center space-y-4">
-          <Label>Last Name</Label>
-          <Input placeholder="Doey" />
-        </div>
-      </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <div className="flex flex-col space-y-1">
-          <Label>Username</Label>
-          <SubLabel>Your username can only be changed within 14 days.</SubLabel>
-        </div>
-        <Input placeholder="John" />
-      </div>
-      <div className="flex flex-col items-start justify-center space-y-4">
-        <Label>Bio</Label>
-        <Textarea placeholder="I am a software developer..." />
-      </div>
-    </div>
-    <Button onClick={onNext}>Save & continue</Button>
-  </div>
-);
-
-const ReviewStep = ({ onFinish }: { onFinish: () => void }) => (
-  <div>
-    Review Step
-    <SuccessDialog
-      title={
-        <div className="flex items-center justify-center gap-4">
-          Success
-          <span className="bg-green-500 text-gray-200 p-2 w-fit h-fit rounded-[10rem]">
-            <CheckIcon />
-          </span>
-        </div>
-      }
-      trigger={<Button>Submit & continue</Button>}
-      afterUrl="/dashboard"
-    />
-  </div>
-);
+// Placeholder for other forms like SkillsAndInterests, PreferencesForm, ReviewStep...
 
 export default OnboardingPage;

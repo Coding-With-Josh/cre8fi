@@ -3,7 +3,7 @@
 import { LogIn, LogInIcon, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import WalletConnection from "@/components/wallet/WalletConnection"
+import WalletConnection from "@/components/wallet/WalletConnection";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
@@ -22,11 +22,10 @@ export const Navbar = () => {
     <nav className="fixed bg-transparent backdrop-blur-md border-b border-slate-900/60 shadow-lg w-screen z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex-shrink-0">
-              <span className="font-bold text-2xl text-primary">Cre8Fi</span>
-            </Link>
+          <Link href="/" className="flex-shrink-0">
+            <span className="font-bold text-2xl text-primary">Cre8Fi</span>
+          </Link>
           <div className="flex items-center">
-
             <div className="hidden md:block md: ml-10">
               <div className="flex items-center space-x-4">
                 {navItems.map((item) => (
@@ -47,10 +46,15 @@ export const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6 gap-4">
-               {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link> */}
+              {/* <Link href="/login" className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300">Log In</Link> */}
 
-              <Link href="/signup" className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300">View Demo</Link> 
-              <WalletConnection/>
+              <Link
+                href="/signup"
+                className="ml-3 px-4 py-2 rounded-full text-sm font-medium text-white bg-primary/80 hover:bg-primary/30 transition-colors duration-300"
+              >
+                View Demo
+              </Link>
+              <WalletConnection />
 
               {/* <button className="flex items-center gap-2 bg-gray-800/60 hover:bg-gray-800 transition-all px-4 py-2 rounded-[10px] border-2 border-white/5">
                 <Link href="/login" className="">
@@ -58,7 +62,6 @@ export const Navbar = () => {
                 </Link>
                 <LogInIcon size={18}/>
               </button> */}
-
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -102,15 +105,14 @@ export const Navbar = () => {
             className="block px-3 py-2 rounded-full text-base font-medium text-gray-300 hover:text-primary hover:bg-primary/5 transition-all"
             onClick={() => setIsOpen(false)}
           >
-            View Demo
+            Get Started
           </Link>
-          <WalletConnection/>
+          <WalletConnection />
         </div>
       </div>
     </nav>
   );
 };
-
 
 // "use client"
 
