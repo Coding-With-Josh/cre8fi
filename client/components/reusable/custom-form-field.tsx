@@ -45,7 +45,7 @@ export const CustomFormField = ({
 }: CustomFormFieldProps) => {
   const { control } = form;
 
-  // Handle select fields separately for clarity
+  
   if (type === "select" && selectItems) {
     return (
       <FormField
