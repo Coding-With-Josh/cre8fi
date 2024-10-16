@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cloneElement, ReactElement } from "react";
 import { UseFormReturn } from "react-hook-form";
 
@@ -25,8 +24,9 @@ interface CustomFormFieldProps {
   name: string;
   label: string;
   type?: string;
+  // value: string;
   form: UseFormReturn<any>;
-  placeholder?: string;
+
   selectItems?: readonly string[];
   readonly?: boolean;
   className?: string;
@@ -37,14 +37,15 @@ export const CustomFormField = ({
   label,
   type = "text",
   form,
-  placeholder,
+  
+
   selectItems,
-  readonly = false,
+  readonly,
   className,
 }: CustomFormFieldProps) => {
   const { control } = form;
 
-  // Handle select fields separately for clarity
+  
   if (type === "select" && selectItems) {
     return (
       <FormField
@@ -56,7 +57,7 @@ export const CustomFormField = ({
             <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder={placeholder} />
+                  <SelectValue placeholder="" />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
@@ -96,6 +97,8 @@ export const CustomFormField = ({
       default:
         return (
           <Input
+            {...form.register(name)}
+            placeholder=""
             readOnly={readonly}
             type={type}
             min={0}
@@ -126,6 +129,7 @@ interface CustomFormFieldWithChildProps {
   className?: string;
   form: UseFormReturn<any>;
   name: string;
+  placeholder?: string;
   label: string;
   type?: string;
 }

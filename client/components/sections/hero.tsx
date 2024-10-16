@@ -77,7 +77,7 @@ const Hero = () => {
         <div className="flex items-center justify-center gap-[2rem] z-[30rem]">
           <Link href="#join_waitlist"><Button>Join the waitlist</Button></Link>
           <Link href="/sign-up">
-          <Button variant={"secondary"}>View Demo</Button></Link>
+          <Button variant={"secondary"}>Get Started</Button></Link>
         </div>
         {/* <Image
             src={require("@/assets/Sphere_Ripple-removebg-preview.png")}
@@ -103,7 +103,7 @@ const Hero = () => {
         <div className="flex items-center justify-center gap-[2rem] z-[30rem]">
           <Link href="#join_waitlist"><Button>Join the waitlist</Button></Link>
           <Link href="/sign-up">
-          <Button variant={"secondary"}>View Demo</Button></Link>
+          <Button variant={"secondary"}>Get Started</Button></Link>
         </div>
         {/* <Image
             src={require("@/assets/Sphere_Ripple-removebg-preview.png")}
