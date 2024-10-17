@@ -18,7 +18,7 @@ router.register(r"profiles", UserProfileViewSet)
 router.register(r"users", UserViewSet)
 
 
-urlpatterns = [
+urlpatterns = [ 
     path("follow/<int:pk>/", FollowViewSet.as_view({"post": "follow_user"})),
     path("unfollow/<int:pk>/", FollowViewSet.as_view({"post": "unfollow_user"})),
     path("followers/", FollowViewSet.as_view({"get": "list_followers"})),
