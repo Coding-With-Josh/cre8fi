@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode (default) */
+    --gradient: #396afc;
+
+    --background: 239 63.05% 4.88%;
+    --foreground: 239 9.7% 98.05%;
+
+    --muted: 239 82.45% 18.3%;
+    --muted-foreground: 239 9.7% 56.1%;
+
+    --popover: 239 45.6% 7.93%;
+    --popover-foreground: 239 9.7% 98.05%;
+
+    --card: 239 45.6% 7.93%;
+    --card-foreground: 239 9.7% 98.05%;
+
+    --border: 239 82.45% 18.3%;
+    --input: 239 82.45% 18.3%;
+
+    --primary: 239 97% 61%;
+    --primary-foreground: 239 9.7% 6.1%;
+
+    --secondary: 239 82.45% 18.3%;
+    --secondary-foreground: 239 9.7% 98.05%;
+
+    --accent: 239 82.45% 18.3%;
+    --accent-foreground: 239 9.7% 98.05%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 239 9.7% 98.05%;
+
+    --ring: 239 97% 61%;
+  }
+
+  .dark {
+    /* Dark mode */
+    --gradient: #1e3a8a;
+
+    --background: 239 63.05% 95.12%;
+    --foreground: 239 9.7% 1.95%;
+
+    --muted: 239 82.45% 81.7%;
+    --muted-foreground: 239 9.7% 43.9%;
+
+    --popover: 239 45.6% 92.07%;
+    --popover-foreground: 239 9.7% 1.95%;
+
+    --card: 239 45.6% 92.07%;
+    --card-foreground: 239 9.7% 1.95%;
+
+    --border: 239 82.45% 81.7%;
+    --input: 239 82.45% 81.7%;
+
+    --primary: 239 97% 39%;
+    --primary-foreground: 239 9.7% 93.9%;
+
+    --secondary: 239 82.45% 81.7%;
+    --secondary-foreground: 239 9.7% 1.95%;
+
+    --accent: 239 82.45% 81.7%;
+    --accent-foreground: 239 9.7% 1.95%;
+
+    --destructive: 0 62.8% 69.4%;
+    --destructive-foreground: 239 9.7% 1.95%;
+
+    --ring: 239 97% 39%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  font-family: 'Nunito_Sans', sans-serif;
+}
